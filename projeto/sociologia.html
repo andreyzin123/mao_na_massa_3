@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sociologia</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Botão "Matérias" fixo no canto superior esquerdo */
+    .top-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .top-button a {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    .top-button a:hover {
+      background-color: #0056b3;
+    }
+
+    .cabeça {
+      width: 90%;
+      max-width: 1200px;
+      background-color: gray;
+      border-radius: 50px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: white;
+      margin: 0;
+    }
+
+    .search-bar {
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px 0 30px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card {
+      background-color: #ffffff;
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px 0;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .card-header {
+      padding: 40px;
+      background-color: #4a90e2;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .card-content {
+      padding: 0 40px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .card.active .card-content {
+      max-height: 500px;
+      padding: 30px 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão Matérias -->
+  <div class="top-button">
+    <a href="materias.html">Matérias</a>
+  </div>
+
+  <!-- Título -->
+  <div class="cabeça">
+    <h1>Sociologia</h1>
+  </div>
+
+  <!-- Barra de pesquisa -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Pesquisar tópico..." onkeyup="filterCards()">
+  </div>
+
+  <!-- Cartões -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Modernidade e capitalismo</div>
+    <div class="card-content">
+      <p>A modernidade é um período histórico caracterizado por transformações profundas nas estruturas sociais, econômicas e culturais. Ela se consolidou com o advento do capitalismo, sistema econômico baseado na propriedade privada dos meios de produção e na busca pelo lucro.<br><br>
+      O capitalismo impulsionou a industrialização, a urbanização e a racionalização das relações sociais. Segundo Max Weber, a modernidade trouxe a "racionalização" da vida social, com instituições baseadas em regras e procedimentos formais. Émile Durkheim observou que a divisão do trabalho aumentou a interdependência entre os indivíduos, promovendo a coesão social, mas também podendo levar à anomia quando as normas sociais se tornam frágeis.<br><br>
+      Assim, a modernidade e o capitalismo estão intrinsecamente ligados, moldando as sociedades contemporâneas e influenciando as relações sociais, econômicas e políticas.
+      </p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Surgimento da Sociologia</div>
+    <div class="card-content">
+      <p>A sociologia surgiu no século XIX como resposta às transformações sociais provocadas pela Revolução Industrial e pela Revolução Francesa. Esses eventos alteraram profundamente as estruturas sociais, econômicas e políticas, gerando a necessidade de compreender e explicar as novas dinâmicas sociais.<br><br>
+      Auguste Comte é considerado o "pai da sociologia" por sistematizar o estudo da sociedade e propor o positivismo como método científico para a análise social. Outros pensadores, como Karl Marx, Émile Durkheim e Max Weber, contribuíram significativamente para o desenvolvimento da sociologia, cada um com abordagens distintas sobre a estrutura e o funcionamento da sociedade.<br><br>
+      A sociologia, portanto, nasceu como uma ciência voltada para o entendimento das mudanças sociais e para a busca de soluções para os problemas decorrentes da modernidade.<br>
+      </p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">O que são ciências sociais?</div>
+    <div class="card-content">
+      <p>As ciências sociais são um conjunto de disciplinas que estudam as sociedades humanas e as relações sociais. Elas buscam compreender como os indivíduos interagem entre si e com as instituições sociais, analisando aspectos como cultura, economia, política e comportamento.<br><br>
+      As principais áreas das ciências sociais incluem:<br><br>
+      <strong>Sociologia: </strong>estuda as estruturas sociais, os grupos e as instituições que compõem a sociedade.<br>
+      <strong>Antropologia: </strong>analisa as culturas humanas, seus costumes, crenças e práticas sociais.<br>
+      <strong>Ciência Política: </strong>examina os sistemas de governo, o poder político e as relações de poder.<br><br>
+      Essas disciplinas utilizam métodos científicos para investigar e interpretar os fenômenos sociais, contribuindo para a compreensão e o aprimoramento das sociedades.
+      </p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">A imaginação sociológica</div>
+    <div class="card-content">
+      <p>O conceito de imaginação sociológica, desenvolvido por C. Wright Mills, refere-se à capacidade de compreender a relação entre experiências individuais e estruturas sociais mais amplas. Essa perspectiva permite que os indivíduos percebam como suas vidas pessoais são influenciadas por contextos históricos, culturais e sociais.<br><br>
+Mills argumenta que muitos problemas pessoais são, na verdade, questões públicas, influenciadas por fatores sociais e históricos. Ao adotar a imaginação sociológica, as pessoas conseguem analisar suas próprias situações à luz de processos sociais mais amplos, compreendendo melhor as causas e consequências de seus desafios pessoais.<br><br>
+Essa abordagem é fundamental para o desenvolvimento de uma consciência crítica, permitindo que os indivíduos se situem dentro de um contexto social mais amplo e compreendam as interações entre biografia e história.<br>
+      </p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">A relação entre indivíduo e sociedade na Sociologia clássica</div>
+    <div class="card-content">
+      <p>A sociologia clássica aborda a relação entre indivíduo e sociedade como uma interação dinâmica e interdependente. Os indivíduos são moldados pelas estruturas sociais em que vivem, ao mesmo tempo em que contribuem para a formação e transformação dessas estruturas.<br><br>
+Émile Durkheim enfatiza que a sociedade exerce uma influência coercitiva sobre os indivíduos por meio de fatos sociais, que são maneiras coletivas de agir, pensar e sentir. Esses fatos sociais existem independentemente das vontades individuais e moldam o comportamento humano.<br><br>
+Max Weber, por outro lado, destaca a importância da ação social, argumentando que os indivíduos atribuem significados às suas ações e que essas ações são fundamentais para a compreensão da sociedade.<br><br>
+Karl Marx foca na estrutura econômica da sociedade, afirmando que as relações de produção influenciam diretamente as relações sociais e individuais.<br><br>
+Assim, a sociologia clássica oferece diversas perspectivas sobre como os indivíduos e a sociedade se influenciam mutuamente, destacando a complexidade dessa relação.<br>
+
+
+
+      </p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Émile Durkheim e a Sociologia como ciência</div>
+    <div class="card-content">
+      <p>Émile Durkheim é considerado um dos fundadores da sociologia moderna e foi fundamental na consolidação da sociologia como uma ciência. Ele propôs que os fenômenos sociais devem ser estudados como "coisas", ou seja, de maneira objetiva e empírica.<br><br>
+Durkheim introduziu o conceito de <strong>fato social</strong>, definido como maneiras coletivas de agir, pensar e sentir que exercem coerção sobre os indivíduos. Esses fatos sociais são exteriores às consciências individuais e têm existência própria.<br><br>
+Em sua obra "As Regras do Método Sociológico", Durkheim estabelece que a sociologia deve identificar, analisar e explicar os fatos sociais, buscando compreender as causas e funções desses fenômenos dentro da sociedade.<br><br>
+Durkheim também explorou temas como a solidariedade social, a divisão do trabalho e o suicídio, sempre buscando entender como as estruturas sociais influenciam o comportamento humano e mantêm a coesão social.<br>
+
+
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Émile Durkheim e o fato social</div>
+    <div class="card-content">
+     <p>Émile Durkheim, um dos fundadores da sociologia moderna, introduziu o conceito de fato social como elemento central para o estudo das sociedades. Segundo Durkheim, fatos sociais são maneiras coletivas de agir, pensar e sentir que exercem coerção sobre os indivíduos, sendo exteriores às consciências individuais. Eles são dotados de poder coercitivo, ou seja, impõem-se aos indivíduos independentemente de sua vontade.
+      <br><br>
+      As principais características dos fatos sociais são:<br><br>
+<strong>Exterioridade: </strong>existem fora das consciências individuais, sendo independentes da vontade dos indivíduos.<br>
+<strong>Coercitividade: </strong>exercem uma força obrigatória sobre os indivíduos, que se sentem compelidos a segui-los.<br>
+<strong>Generalidade: </strong>são comuns a todos ou à maioria dos membros de uma sociedade.<br><br>
+Exemplos de fatos sociais incluem normas jurídicas, costumes, crenças religiosas, regras morais e instituições sociais. Durkheim argumentava que a sociologia deveria estudar os fatos sociais como "coisas", ou seja, de maneira objetiva e empírica, buscando entender como eles influenciam o comportamento humano e mantêm a coesão social.     
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Émile Durkheim e a divisão do trabalho social</div>
+    <div class="card-content">
+      <p>Em sua obra "Da Divisão do Trabalho Social", Durkheim analisa como a especialização das funções dentro de uma sociedade contribui para sua coesão e funcionamento. Ele identifica dois tipos de solidariedade social:<br><br>
+        <strong>Solidariedade Mecânica: </strong>predomina em sociedades simples e tradicionais, onde os indivíduos compartilham crenças e valores semelhantes. A coesão social é mantida pela homogeneidade e pela consciência coletiva forte.<br><br>
+        <strong>Solidariedade Orgânica: </strong>característica de sociedades complexas e modernas, onde há uma alta especialização do trabalho. A coesão social resulta da interdependência entre os indivíduos, que desempenham funções diferentes, mas complementares.<br><br>
+        Durkheim também aborda o conceito de <strong>anomia </strong>que se refere à falta de normas claras em uma sociedade, levando à desintegração social e ao aumento de comportamentos desviantes. Ele argumenta que, embora a divisão do trabalho promova a coesão social, ela também pode gerar anomia se não for acompanhada por uma regulação moral adequada.
+      </p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Karl Marx e a relação entre indivíduo e sociedade</div>
+    <div class="card-content">
+<p>Karl Marx compreendia a sociedade como estruturada por relações de produção que determinam as classes sociais. Para ele, os indivíduos não existem isoladamente; são moldados pelas condições materiais e pelas relações sociais em que estão inseridos. A sociedade, portanto, é o resultado das interações entre indivíduos situados em diferentes posições dentro das estruturas econômicas e sociais.<br><br>
+Marx enfatizava que a consciência dos indivíduos é influenciada pela sua posição de classe, ou seja, pelas relações que estabelecem com os meios de produção. Assim, as ideias, valores e comportamentos dos indivíduos são reflexos das condições materiais de sua existência. Essa perspectiva destaca a importância de compreender as estruturas sociais para entender as ações individuais.
+
+
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Karl Marx, o capitalismo e suas contradições</div>
+    <div class="card-content">
+<p>Marx analisou o capitalismo como um sistema econômico baseado na exploração do trabalho e na acumulação de capital. Ele identificou contradições inerentes ao capitalismo, como a concentração de riqueza nas mãos de poucos e a crescente desigualdade social. Essas contradições, segundo Marx, levariam a crises econômicas periódicas e, eventualmente, à superação do sistema capitalista.<br><br>
+Uma das principais contradições apontadas por Marx é a tendência do capitalismo de gerar uma classe trabalhadora cada vez mais empobrecida, enquanto a burguesia acumula riqueza. Além disso, o sistema promove a alienação do trabalhador, que perde o controle sobre o processo produtivo e sobre os produtos de seu trabalho. Essas dinâmicas criam tensões sociais que, para Marx, são insustentáveis a longo prazo.
+
+</p>
+    </div>
+  </div>
+
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Karl Marx, a exploração do trabalho e a luta de classes</div>
+    <div class="card-content">
+<p>No pensamento de Marx, a exploração do trabalho é central para a compreensão das desigualdades sociais. Ele argumentava que a burguesia, detentora dos meios de produção, obtém lucro ao extrair mais-valia do trabalho do proletariado, ou seja, ao pagar menos pelo trabalho do que o valor que ele gera. Essa exploração é a base da luta de classes, conflito entre os interesses da classe dominante e da classe trabalhadora.<br><br>
+Marx via a luta de classes como o motor da história, impulsionando transformações sociais e políticas. Ele acreditava que, por meio da consciência de classe e da organização coletiva, o proletariado poderia derrubar o sistema capitalista e estabelecer uma sociedade sem classes, baseada na propriedade comum dos meios de produção e na distribuição equitativa da riqueza.
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Max Weber e a relação entre indivíduo e sociedade</div>
+    <div class="card-content">
+<p>Max Weber, um dos fundadores da sociologia moderna, propôs uma abordagem compreensiva para entender a sociedade. Para ele, a sociedade é composta por indivíduos cujas ações são dotadas de sentido e orientadas em relação aos outros. Assim, a análise sociológica deve focar na compreensão das motivações subjetivas que levam os indivíduos a agir de determinada maneira.<br><br>
+Diferentemente de Durkheim, que enfatizava os fatos sociais como coercitivos e exteriores ao indivíduo, Weber acreditava que a sociedade é construída a partir das ações sociais dos indivíduos. Essas ações são influenciadas por valores, crenças e contextos culturais, tornando a compreensão do sentido atribuído pelos atores sociais essencial para a análise sociológica.<br><br>
+Portanto, para Weber, a relação entre indivíduo e sociedade é dinâmica e interdependente, sendo fundamental compreender as ações individuais para entender as estruturas sociais.
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Max Weber e a Sociologia Compreensiva</div>
+    <div class="card-content">
+<p>A <strong>sociologia compreensiva </strong>(Verstehende Soziologie) é a abordagem metodológica desenvolvida por Max Weber, que busca entender a sociedade a partir da interpretação dos significados que os indivíduos atribuem às suas ações. Para Weber, a sociologia deve analisar a ação social, ou seja, a conduta humana dotada de sentido e orientada em relação aos outros.<br><br>
+Essa abordagem difere do positivismo, que busca explicações causais e generalizações. A sociologia compreensiva enfatiza a compreensão interpretativa, valorizando a subjetividade e o contexto cultural das ações sociais. Weber utilizava o conceito de <strong>tipo ideal </strong>como ferramenta metodológica para analisar e comparar fenômenos sociais, construindo modelos teóricos que destacam características essenciais de determinadas ações ou instituições.<br><br>
+Assim, a sociologia compreensiva permite uma análise mais profunda e contextualizada da sociedade, considerando as motivações e significados atribuídos pelos indivíduos às suas ações.<br>
+
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Teoria Sociológica Clássica: Max Weber, Tipos Ideais e Ação Social</div>
+    <div class="card-content">
+<p>Max Weber introduziu o conceito de <strong>ação social </strong>como o objeto central da sociologia. Para ele, ação social é toda conduta humana dotada de sentido, que considera o comportamento dos outros e é orientada em relação a ele. Weber classificou as ações sociais em quatro tipos ideais:<br><br>
+<strong>Ação racional com relação a fins: </strong>ações planejadas para alcançar objetivos específicos, utilizando os meios mais eficientes.<br>
+<strong>Ação racional com relação a valores: </strong>ações motivadas por convicções éticas, religiosas ou estéticas, independentemente das consequências.<br>
+<strong>Ação afetiva: </strong>ações determinadas por emoções ou sentimentos imediatos.<br>
+<strong>Ação tradicional: </strong>ações motivadas por costumes ou hábitos arraigados.<br><br>
+Os <strong>tipos ideais </strong>são construções teóricas que servem como modelos para a análise da realidade social. Eles não correspondem exatamente à realidade empírica, mas ajudam a compreender e interpretar os fenômenos sociais ao destacar características essenciais.<br><br>
+A combinação dos conceitos de ação social e tipos ideais permite uma análise sociológica que considera tanto as motivações individuais quanto as estruturas sociais, proporcionando uma compreensão mais completa da sociedade.
+
+
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Antropologia: a ciência da alteridade e da cultura</div>
+    <div class="card-content">
+<p>A <strong> Antropologia</strong>é a ciência que estuda o ser humano em sua totalidade, considerando aspectos biológicos, sociais, culturais e linguísticos. É conhecida como a ciência da alteridade, pois busca compreender o "outro" em sua diversidade cultural, promovendo o entendimento e o respeito às diferenças.<br><br>O conceito de alteridade é central na antropologia, pois permite que os pesquisadores analisem culturas distintas sem julgamentos preconceituosos, evitando o <strong>etnocentrismo</strong>.<br><br> Ao adotar uma postura de empatia e compreensão, os antropólogos conseguem interpretar práticas culturais diversas em seus próprios contextos, reconhecendo a riqueza da diversidade humana.<br><br>Assim, a antropologia contribui para a construção de uma sociedade mais inclusiva e tolerante, ao valorizar as múltiplas formas de ser e viver presentes nas diferentes culturas ao redor do mundo.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Evolucionismo Cultural</div>
+    <div class="card-content">
+<p>O <strong>Evolucionismo Cultural </strong>foi uma das primeiras correntes teóricas da antropologia, desenvolvida no século XIX. Inspirado pelas ideias de Charles Darwin, propunha que as culturas humanas evoluíam de formas simples para complexas, seguindo estágios universais de desenvolvimento.<br><br>Autores como <strong>Lewis Henry Morgan, Edward Burnett Tylor e James George Frazer</strong> foram representantes dessa corrente. Eles acreditavam que todas as sociedades passavam por estágios de evolução cultural, desde o "estado selvagem" até a "civilização", com base em critérios como tecnologia, religião e organização social.<br><br>Embora tenha sido importante para o surgimento da antropologia como disciplina científica, o evolucionismo cultural foi posteriormente criticado por seu caráter etnocêntrico e determinista, sendo substituído por abordagens que valorizam a diversidade e a especificidade cultural de cada sociedade.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Etnocentrismo e alteridade</div>
+    <div class="card-content">
+<p>O <strong>etnocentrismo </strong>é a tendência de considerar a própria cultura como superior às demais, julgando outras culturas com base em valores e padrões próprios. Essa visão pode levar à intolerância, discriminação e conflitos interculturais.<br><br>Em contraposição, a <strong>alteridade</strong> é o reconhecimento e o respeito às diferenças culturais. Na antropologia, a alteridade é fundamental para compreender as diversas formas de vida humana sem preconceitos, promovendo o entendimento e a valorização da diversidade cultural.<br><br>Adotar uma postura de alteridade permite que os indivíduos e as sociedades desenvolvam empatia, tolerância e respeito mútuo, essenciais para a convivência pacífica em um mundo cada vez mais globalizado e multicultural.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Relativismo Cultural</div>
+    <div class="card-content">
+<p>O <strong>relativismo cultural </strong>é um princípio antropológico que defende que as práticas e valores de uma cultura devem ser compreendidos em seu próprio contexto, sem julgamentos externos. Essa abordagem se opõe ao etnocentrismo, promovendo o respeito à diversidade cultural.<br><br>Desenvolvido por antropólogos como <strong>Franz Boas</strong>, o relativismo cultural enfatiza que não existem padrões universais de certo ou errado, e que cada cultura possui sua própria lógica e coerência interna. Essa perspectiva é fundamental para a compreensão das diferentes formas de organização social, crenças e comportamentos humanos.<br><br>No entanto, o relativismo cultural também enfrenta críticas, especialmente quando práticas culturais entram em conflito com direitos humanos universais. Nesses casos, é necessário um equilíbrio entre o respeito à diversidade cultural e a defesa de princípios éticos fundamentais.</p>
+    </div>
+  </div>
+
+
+
+ <p>fim do segundo ano</p>
+
+
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Estado e Governo</div>
+    <div class="card-content">
+<p>Na sociologia, o <strong>Estado </strong>é compreendido como uma instituição social que detém o monopólio legítimo da força e exerce soberania sobre um território definido. Ele é responsável por estabelecer e manter a ordem social, criando e aplicando normas que regulam a vida em sociedade. O Estado moderno, conforme analisado por pensadores como Weber, Marx e Durkheim, é caracterizado por uma burocracia racional-legal e pela centralização do poder.<br><br>O <strong>governo</strong>, por sua vez, é o conjunto de instituições e indivíduos que exercem o poder político dentro do Estado por um período determinado. Ele é responsável pela administração pública e pela implementação das políticas estatais. Enquanto o Estado é uma entidade permanente, o governo é transitório e pode mudar conforme os processos democráticos ou outras formas de sucessão política.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Democracia no Brasil</div>
+    <div class="card-content">
+<p>A <strong>democracia</strong> é um sistema político em que o poder é exercido pelo povo, direta ou indiretamente, por meio de representantes eleitos. No Brasil, a democracia tem sido marcada por avanços e retrocessos ao longo da história. Após o período da ditadura militar (1964-1985), o país retornou ao regime democrático com a promulgação da Constituição Federal de 1988, que estabeleceu direitos civis, políticos e sociais para os cidadãos.<br><br>Contudo, desafios persistem, como a desigualdade social, a corrupção e a crise de representatividade. Movimentos sociais e protestos, como os de 2013, evidenciam a insatisfação da população com o sistema político e a necessidade de reformas que fortaleçam a participação cidadã e a transparência governamental.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Cidadania no Brasil</div>
+    <div class="card-content">
+<p>A <strong>cidadania</strong> refere-se ao conjunto de direitos e deveres que permitem ao indivíduo participar plenamente da vida política, econômica e social de seu país. No Brasil, a construção da cidadania foi um processo gradual, influenciado por lutas sociais e políticas ao longo do tempo. A Constituição de 1988 representou um marco significativo ao ampliar os direitos civis, políticos e sociais dos brasileiros.<br><br>Apesar dos avanços legais, a efetivação da cidadania plena enfrenta obstáculos, como a desigualdade de acesso a serviços públicos de qualidade, a violência e a exclusão social. A sociologia destaca a importância da participação ativa dos cidadãos e da mobilização social para a consolidação de uma cidadania substantiva, que vá além do reconhecimento formal dos direitos.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Constituição Federal de 1988</div>
+    <div class="card-content">
+<p>A <strong>Constituição Federal de 1988</strong>, conhecida como "Constituição Cidadã", foi promulgada após o fim da ditadura militar e estabeleceu as bases do Estado Democrático de Direito no Brasil. Ela garantiu uma ampla gama de direitos fundamentais, incluindo liberdade de expressão, igualdade perante a lei e acesso à educação e à saúde.<br><br>Do ponto de vista sociológico, a Constituição de 1988 é vista como um instrumento de transformação social, pois institucionalizou direitos que foram historicamente reivindicados por diversos movimentos sociais. Ela também representa um compromisso com a justiça social e a inclusão, embora sua implementação plena ainda enfrente desafios significativos, como a desigualdade e a exclusão de grupos marginalizados.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Três Poderes no Brasil</div>
+    <div class="card-content">
+<p>A organização política do Brasil baseia-se na divisão dos Três Poderes: Executivo, Legislativo e Judiciário. Essa estrutura, inspirada nas ideias de Montesquieu, visa evitar a concentração de poder e garantir o equilíbrio entre as funções estatais.<br>
+<li><strong>Poder Executivo:</strong> Responsável por governar e administrar o país, implementando políticas públicas e executando as leis. É exercido pelo Presidente da República, governadores e prefeitos.</li><br>
+<li><strong>Poder Legislativo:</strong> Tem a função de elaborar, discutir e aprovar leis. No âmbito federal, é representado pelo Congresso Nacional, composto pela Câmara dos Deputados e pelo Senado Federal.</li><br>
+<li><strong>Poder Judiciário:</strong> Encarregado de interpretar e aplicar as leis, garantindo a justiça e a resolução de conflitos. É composto por diversos tribunais, incluindo o Supremo Tribunal Federal (STF).</li><br>
+Essa separação de poderes é fundamental para a manutenção da democracia e do Estado de Direito no Brasil.
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">O Sistema Federativo Brasileiro</div>
+    <div class="card-content">
+<p>O Brasil adota um sistema federativo, caracterizado pela divisão do poder político entre diferentes entes autônomos: União, Estados, Municípios e Distrito Federal. Cada um possui competências legislativas, administrativas e tributárias próprias, estabelecidas pela Constituição Federal de 1988<br><br>Esse modelo busca promover a descentralização do poder, permitindo que as decisões sejam tomadas mais próximas da população. No entanto, desafios persistem, como as desigualdades regionais e a necessidade de coordenação entre os entes federativos para a implementação eficaz de políticas públicas.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Sistema Eleitoral no Brasil</div>
+    <div class="card-content">
+<p>O sistema eleitoral brasileiro combina elementos majoritários e proporcionais:<br>
+<li><strong>Sistema Majoritário: </strong>Utilizado para cargos do Executivo (Presidente, Governadores e Prefeitos) e para o Senado Federal. O candidato mais votado é eleito.</li><br>
+<li><strong>Sistema Proporcional: </strong>Aplicado nas eleições para a Câmara dos Deputados, Assembleias Legislativas e Câmaras Municipais. Os votos são distribuídos proporcionalmente entre os partidos, e as cadeiras são ocupadas conforme a votação obtida por cada legenda e seus candidatos.</li><br>
+Esse sistema visa garantir a representatividade política e a pluralidade de opiniões no processo legislativo.<br>
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Juventudes: Conceito e Diversidade</div>
+    <div class="card-content">
+<p>Na sociologia, a juventude é entendida como uma construção social e histórica, variando conforme contextos culturais, econômicos e políticos. Não existe uma única juventude, mas múltiplas "juventudes", marcadas por fatores como classe social, gênero, etnia e território. <br><br>Estudar as juventudes implica reconhecer suas diversidades e compreender os desafios específicos enfrentados por diferentes grupos de jovens. Essa abordagem é fundamental para a formulação de políticas públicas inclusivas e para o fortalecimento da cidadania entre os jovens.</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Demandas Atuais das Juventudes</div>
+    <div class="card-content">
+<p>As juventudes brasileiras enfrentam desafios multifacetados que refletem as complexas transformações sociais contemporâneas. Entre as principais demandas estão:<br>
+<li><strong>Educação de qualidade e acesso à tecnologia: </strong>A busca por uma formação que dialogue com as exigências do mercado de trabalho e com as inovações tecnológicas é uma constante entre os jovens.<br></li><br>
+<li><strong>Emprego e renda: </strong>A inserção no mercado de trabalho, especialmente em empregos formais e com direitos garantidos, é uma preocupação central.<br></li>
+<li><strong>Saúde mental e bem-estar: </strong>O aumento de casos de ansiedade e depressão entre jovens destaca a necessidade de políticas públicas voltadas para a saúde mental.<br></li>
+<li><strong>Participação política e social: </strong>Os jovens buscam espaços de expressão e decisão, desejando influenciar nas políticas que os afetam diretamente.<br></li><br>
+Essas demandas são moldadas por fatores como classe social, gênero, raça e território, evidenciando a diversidade das juventudes e a necessidade de políticas públicas que considerem essas especificidades.
+</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Conselhos das Juventudes</div>
+    <div class="card-content">
+      Os Conselhos de Juventude, como o Conselho Nacional de Juventude (Conjuve), são espaços institucionais que visam promover a participação ativa dos jovens na formulação, implementação e avaliação de políticas públicas. Eles funcionam como canais de diálogo entre o Estado e a sociedade civil, permitindo que as demandas juvenis sejam ouvidas e consideradas nas decisões governamentais.<br><br>A atuação desses conselhos é fundamental para a consolidação da cidadania juvenil, pois fortalece a democracia participativa e reconhece os jovens como sujeitos de direitos e agentes de transformação social.
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Audiências Públicas</div>
+    <div class="card-content">
+<p>As audiências públicas são mecanismos de participação social que permitem a discussão de temas de interesse coletivo entre o poder público e a sociedade civil. Na sociologia, elas são vistas como instrumentos que promovem a transparência, a legitimidade e a democratização das decisões políticas.<br><br>No contexto brasileiro, audiências públicas têm sido utilizadas em diversas esferas, como no Supremo Tribunal Federal (STF), para debater questões de grande repercussão social. Elas possibilitam que diferentes atores sociais expressem suas opiniões, contribuindo para decisões mais inclusivas e representativas.<br><br>Contudo, é importante destacar que a efetividade das audiências públicas depende da real consideração das contribuições apresentadas e do compromisso das instituições em incorporar essas perspectivas nas políticas e decisões finais.<br></p>
+    </div>
+  </div>
+
+<p>ultima pesquisa feita</p>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Participação política das Juventudes: do Grêmio Escolar ao Parlamento</div>
+    <div class="card-content">
+
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Participação política das Juventudes: do Grêmio Escolar ao Parlamento</div>
+    <div class="card-content">
+
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Fiscalização cidadã</div>
+    <div class="card-content">
+
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Transparência orçamentária</div>
+    <div class="card-content">
+
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Orçamento Participativo</div>
+    <div class="card-content">
+
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">Modelos de Guia Informativo</div>
+    <div class="card-content">
+
+    </div>
+  </div>
+
+
+
+  <script>
+    function toggleCard(card) {
+      card.classList.toggle('active');
+    }
+
+    function filterCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('.card-header').innerText.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
